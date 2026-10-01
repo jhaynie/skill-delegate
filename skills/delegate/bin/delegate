@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# The delegate command. Every subcommand goes to the engine, which needs
+# Node 22.18 or newer to run TypeScript directly.
+# ~/.local/bin/delegate links here, so resolve the link to find the package.
+# Resolution uses readlink without -f, so it works on Linux and on macOS
+# releases whose readlink has no -f. A readlink that prints nothing fails
+# closed, instead of pointing the package at the caller's directory.
+
+resolve_dir() {
+  (
+    local source="$1" dir link
+    while [[ -L "$source" ]]; do
+      dir="$(cd -P "$(dirname "$source")" && pwd)" || exit 1
+      link="$(readlink "$source")" || exit 1
+      [[ -n "$link" ]] || exit 1
+      if [[ "$link" == /* ]]; then
+        source="$link"
+      else
+        source="$dir/$link"
+      fi
+    done
+    cd -P "$(dirname "$source")" && pwd
+  )
+}
+
+here="$(resolve_dir "${BASH_SOURCE[0]}")" || here=""
+pkg="$(cd "$here/.." 2>/dev/null && pwd -P)" || pkg=""
+# The package must hold this very file. -ef compares the file, so a symlink
+# to bin/delegate still matches.
+if [[ ! -f "$pkg/engine/cli.ts" || ! "$pkg/bin/delegate" -ef "${BASH_SOURCE[0]}" ]]; then
+  printf '[- | fail | - | delegate cannot find its package from %s | session=- | out=-]\n' "${BASH_SOURCE[0]}"
+  exit 1
+fi
+if ! node -e 'const [a, b] = process.versions.node.split(".").map(Number); process.exit(a > 22 || (a === 22 && b >= 18) ? 0 : 1)'; then
+  printf '[- | fail | - | delegate needs node 22.18 or newer, found %s | session=- | out=-]\n' "$(node --version 2>/dev/null || echo missing)"
+  exit 1
+fi
+exec node "$pkg/engine/cli.ts" "$@"

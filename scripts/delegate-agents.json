@@ -1,0 +1,106 @@
+{
+  "agents": [
+    {
+      "cli": "codex",
+      "label": "Codex",
+      "kind": "direct",
+      "requiredFlags": {
+        "--cwd": "value",
+        "--prompt-file": "value",
+        "--out": "value"
+      },
+      "optionalFlags": {
+        "--mode": "value",
+        "--model": "value",
+        "--effort": "value",
+        "--tier": "value",
+        "--resume": "value"
+      },
+      "withheldFlags": {
+        "--answer": "the forwarder must never see the worker's answer"
+      }
+    },
+    {
+      "cli": "cursor",
+      "label": "Cursor",
+      "kind": "direct",
+      "requiredFlags": {
+        "--cwd": "value",
+        "--prompt-file": "value",
+        "--out": "value"
+      },
+      "optionalFlags": {
+        "--mode": "value",
+        "--full-access": "boolean",
+        "--model": "value",
+        "--resume": "value"
+      },
+      "withheldFlags": {
+        "--answer": "the forwarder must never see the worker's answer"
+      }
+    },
+    {
+      "cli": "devin",
+      "label": "Devin CLI",
+      "kind": "engine",
+      "requiredFlags": {
+        "--cwd": "value",
+        "--prompt-file": "value",
+        "--out": "value"
+      },
+      "optionalFlags": {
+        "--mode": "value",
+        "--full-access": "boolean",
+        "--model": "value",
+        "--effort": "value",
+        "--deadline": "value",
+        "--resume": "value"
+      },
+      "withheldFlags": {
+        "--answer": "the forwarder must never see the worker's answer"
+      }
+    },
+    {
+      "cli": "grok",
+      "label": "Grok CLI",
+      "kind": "engine",
+      "requiredFlags": {
+        "--cwd": "value",
+        "--prompt-file": "value",
+        "--out": "value"
+      },
+      "optionalFlags": {
+        "--mode": "value",
+        "--full-access": "boolean",
+        "--model": "value",
+        "--effort": "value",
+        "--deadline": "value",
+        "--resume": "value"
+      },
+      "withheldFlags": {
+        "--answer": "the forwarder must never see the worker's answer"
+      }
+    },
+    {
+      "cli": "opencode",
+      "label": "OpenCode",
+      "kind": "engine",
+      "requiredFlags": {
+        "--cwd": "value",
+        "--prompt-file": "value",
+        "--out": "value"
+      },
+      "optionalFlags": {
+        "--mode": "value",
+        "--model": "value",
+        "--effort": "value",
+        "--deadline": "value",
+        "--resume": "value"
+      },
+      "withheldFlags": {
+        "--answer": "the forwarder must never see the worker's answer",
+        "--full-access": "OpenCode has no sandbox to turn off, so the engine refuses it"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Delegate"
+  short_description: "Delegate scoped subtasks to Grok, Codex, Devin, Cursor, OpenCode, or a native helper"
+  default_prompt: "Use $delegate to split this work into scoped subtasks, run them through the delegate command or a native helper, and verify the returned evidence."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,13 @@
+{
+  "name": "delegate",
+  "owner": {
+    "name": "Agentuity, Inc"
+  },
+  "plugins": [
+    {
+      "name": "delegate",
+      "description": "One forwarding agent per delegate worker CLI, so a worker run shows in the Agents panel. Each agent returns only a status notice, and the parent reads the answer with delegate result. Adds status, result, and cancel commands.",
+      "source": "./skills/delegate/plugin"
+    }
+  ]
+}

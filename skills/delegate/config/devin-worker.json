@@ -1,0 +1,28 @@
+{
+  "subagents_enabled": false,
+  "attribution": false,
+  "read_config_from": {
+    "claude": true
+  },
+  "permissions": {
+    "allow": [
+      "Fetch(https://*/*)"
+    ],
+    "deny": [
+      "mcp__*",
+      "Exec(sudo)",
+      "Exec(git push)",
+      "Write(.env*)",
+      "Write(.git/**)",
+      "Write(~/.claude/**)",
+      "Write(~/.agents/**)",
+      "Write(~/.codex/**)",
+      "Write(~/.config/delegate/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.netrc)",
+      "Read(~/Library/Keychains/**)"
+    ]
+  }
+}
