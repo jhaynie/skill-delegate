@@ -6,13 +6,11 @@ Linux and macOS. Node.js 22.18 or newer. No build step and no npm install.
 
 ## Install
 
-After this repository is on GitHub:
-
 ```bash
 npx skills add jhaynie/skill-delegate
 ```
 
-That installs `skills/delegate/`. From the installed skill directory (the one that contains `SKILL.md`):
+Then, from the installed skill directory (the folder that contains `SKILL.md`):
 
 ```bash
 bash scripts/install.sh
