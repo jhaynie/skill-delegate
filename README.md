@@ -2,6 +2,8 @@
 
 One command that runs Codex, Cursor, Devin CLI, Grok CLI, and OpenCode as background workers, plus the agent skill that briefs them and checks the result.
 
+Original work by [Parteek Singh](https://github.com/parteeksingh24) at Agentuity.
+
 Linux and macOS. Node.js 22.18 or newer. No build step and no npm install.
 
 ## Install
